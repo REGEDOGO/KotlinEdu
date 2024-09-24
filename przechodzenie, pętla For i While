@@ -1,0 +1,76 @@
+fun main(){
+    // PRZECHODZENIE PO CIĄGU ZNAKÓW
+
+    var imie: String?= "Rege"
+    var name: Char
+
+    name = if (imie != null){
+        imie.first()
+    } else {
+        ' '
+    }
+    imie?.first() ?: ' '
+    println(name)
+
+    // PĘTLE FOR
+
+    println()
+    println("zwykła pętla: ")
+    for (i in 0..10){
+        print(i)
+    }
+    println()
+    println("pętla przeskakująca")
+    for (i in 0..10 step 2){
+        print(i)
+    }
+    println()
+    println("pętla z przedziału zamkniętego do otwartego")
+    for (i in 0 until 10){
+        print(i)
+    }
+    println()
+    println("odwrócona pętla")
+    for (i in 10 downTo 0){
+        print(i)
+    }
+    println()
+    println("przerywana pętla: ")
+    for (i in 0..10){
+        if(i < 5) {
+            print(i)
+            continue
+        }
+        if(i == 8){
+            break
+        }
+    }
+    println()
+    println("pętla oparta na tablicy: ")
+    var tab = intArrayOf(1,2,3,4,5)
+    for(i in tab){  // ewentualnie tab.size
+        print(i)
+    }
+    println()
+    for(i in tab.indices){
+        print(tab[i])
+    }
+
+
+    // ZADANIE
+
+    println("liczby podzielne przez 3 i 5 z przedziału 0 do 100 to:")
+    for (i in 0..100){
+        if(i % 3 == 0 && i % 5 == 0){
+            println(i)
+        }
+    }
+
+    // PĘTLA WHILE
+    println("pętla while")
+    var x = 1
+    while (x < 5){
+        print(x)
+        x++
+    }
+}
