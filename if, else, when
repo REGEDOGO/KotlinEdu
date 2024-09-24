@@ -2,10 +2,14 @@ fun main(){
     var a = 6
     var b = 9
 
+    // INSTRUKCJE WARUNKOWE
+
     if(a > b)
         println("fakt")
     else
         println("fake info")
+
+    // INSTRUKCJA CASE, ALE TO WHEN
 
     print("liczba a jest ")
     when(a){
@@ -26,4 +30,4 @@ fun main(){
         a > b -> println("co do sigmy?")
         b > a -> println("to ma większy sens")
     }
-}  
+}
