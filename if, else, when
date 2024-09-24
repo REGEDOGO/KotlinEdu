@@ -1,0 +1,29 @@
+fun main(){
+    var a = 6
+    var b = 9
+
+    if(a > b)
+        println("fakt")
+    else
+        println("fake info")
+
+    print("liczba a jest ")
+    when(a){
+        0 -> println("warta tyle co ja")
+        in 1..7 -> println("poniżej 8")
+        8, 9, 10 -> println("równa około 10")
+        else -> println("..., stary sam nie wiem")
+    }
+    print("liczba b jest ")
+    when(b){
+        0 -> println("warte tyle co ja")
+        in 1..7 -> println("poniżej 8")
+        8, 9, 10 -> println("około 10")
+        else -> println("stary sam nie wiem")
+    }
+
+    when{
+        a > b -> println("co do sigmy?")
+        b > a -> println("to ma większy sens")
+    }
+}  
