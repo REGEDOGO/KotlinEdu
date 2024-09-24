@@ -1,0 +1,34 @@
+fun main(){
+    var a = 6
+    var b = 9
+
+    println(a != b)
+
+    println(8 in a..b)
+    println(8 !in a..b)
+
+    var tabInt = arrayOf(3, 435, 45, 87, 58, 48, 727)
+
+    var dane = tabInt.get(6)
+    tabInt.set(6, 27)
+    println(tabInt.max())
+
+    println(dane)
+
+    println(tabInt.size)
+
+    tabInt.shuffle()
+
+    println(tabInt[2])
+
+    var tabStr: Array<String> = arrayOf("poniedzialek", "wtorek", "sroda", "czwartek", "piatek", "sobota", "niedziela")
+    println(tabStr[5]) //sobota
+
+    var tabTab = arrayOf(
+        intArrayOf(543,3,25),
+        intArrayOf(345,63,2),
+        intArrayOf(36,27,382),
+        intArrayOf(47,236,40)
+    )
+    println(tabTab[1][2])
+}
