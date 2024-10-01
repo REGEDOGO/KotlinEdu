@@ -1,0 +1,29 @@
+/*
+ZAD 1
+Porównaj 3 liczby podane od użytkownika. 
+Jeżeli jakakolwiek suma równa jest 10, wypisz "true", 
+jeżeli wszystkie mają inny wynik, wypisz "false".
+
+ZAD 2
+Wypisz liczby od 100 do 1 skacząc po zmiennych po 3.
+*/
+
+fun main(){
+    println("zad 1")
+
+    print("podaj a: ")
+    val a = readLine()!!.toInt()
+    print("podaj b: ")
+    val b = readLine()!!.toInt()
+    print("podaj c: ")
+    val c = readLine()!!.toInt()
+    if(a + b == 10 || a + c == 10 || b + c == 10)
+        println("true")
+    else
+        println("false")
+
+    println("zad 2")
+    for (i in 100 downTo 1 step 3){
+        println(i)
+    }
+}
