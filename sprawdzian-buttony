@@ -1,0 +1,142 @@
+package com.example.myapplication
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.myapplication.ui.theme.MyApplicationTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            MyApplicationTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Greeting(
+                        name = "Android",
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    var przycisk1 by remember { mutableStateOf(false) }
+    var przycisk2 by remember { mutableStateOf(false) }
+    var przycisk3 by remember { mutableStateOf(false) }
+    var suwak by remember { mutableFloatStateOf(0f) }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Checkbox(
+                checked = przycisk1,
+                onCheckedChange = { przycisk1 = it }
+            )
+            Checkbox(
+                checked = przycisk2,
+                onCheckedChange = { przycisk2 = it }
+            )
+            Checkbox(
+                checked = przycisk3,
+                onCheckedChange = { przycisk3 = it }
+            )
+            Text(
+                text = "Ustawienia"
+            )
+        }
+
+        if(przycisk1) {
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+              Text(
+                  text = "pierwszy przycisk zaznaczony"
+              )
+            }
+        }
+
+        if (przycisk2) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(
+                    imageVector = Icons.Outlined.Notifications,
+                    contentDescription = "dzwonek1"
+                )
+
+                Slider(
+                    value = suwak,
+                    onValueChange = { suwak = it },
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(horizontal = 16.dp)
+                )
+
+                Icon(
+                    imageVector = Icons.Default.Notifications,
+                    contentDescription = "dzwonek2",
+                    tint = if (suwak >= 0.7f) {
+                        Color.Red
+                    } else {
+                        Color.Black
+                    }
+                )
+            }
+
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                if (suwak < 0.5f) {
+                    Spacer(
+                        modifier = Modifier.height(16.dp)
+                    )
+                    Text(
+                        text = "Uwaga głośno",
+                        color = Color.Red
+                    )
+                }
+            }
+        }
+
+        if(przycisk3) {
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "trzeci przycisk zaznaczony"
+                )
+            }
+        }
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview() {
+    MyApplicationTheme {
+        Greeting("Android")
+    }
+}
